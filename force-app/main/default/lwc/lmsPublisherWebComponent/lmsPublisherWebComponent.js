@@ -15,7 +15,8 @@ export default class LmsPublisherWebComponent extends LightningElement {
     // Respond to UI event by publishing message
     handleContactSelect(event) {
         const payload = { recordId: event.target.contact.Id };
-
+        //const paymessage=event.target.contact.Name;
+        //console.log(paymessage);
         publish(this.messageContext, RECORD_SELECTED_CHANNEL, payload);
     }
 }
