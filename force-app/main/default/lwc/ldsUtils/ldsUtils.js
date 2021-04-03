@@ -11,7 +11,12 @@ export function reduceErrors(errors) {
     return (
         errors
             // Remove null/undefined items
+            // this will remove the nulls in the in commming error array
+            //const words = ['spray', 'limit', '', 'exuberant', 'destruction', 'present'];
+            //const result = words.filter(word => !!word);
+            //Result==>Array ["spray", "limit", "exuberant", "destruction", "present"]
             .filter((error) => !!error)
+
             // Extract an error message
             .map((error) => {
                 // UI API read errors
@@ -30,6 +35,7 @@ export function reduceErrors(errors) {
                 return error.statusText;
             })
             // Flatten
+            //The reduce() method executes a reducer function (that you provide) on each element of the array, resulting in single output value.
             .reduce((prev, curr) => prev.concat(curr), [])
             // Remove empty strings
             .filter((message) => !!message)
